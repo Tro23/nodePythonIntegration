@@ -60,10 +60,7 @@ const main = async () => {
     start();
 
   });
-
-  // r1.on('close',()=>{
-  //   start();
-  // });
+ 
   rl.close();
 };
 
