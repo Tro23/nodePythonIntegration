@@ -1,3 +1,4 @@
+const start = require('./index.js');
 const readline = require("readline");
 
 const rl = readline.createInterface({
@@ -56,7 +57,13 @@ const main = async () => {
     // Error checking
     if (err) throw err;
     console.log("New data added");
+    start();
+
   });
+
+  // r1.on('close',()=>{
+  //   start();
+  // });
   rl.close();
 };
 
