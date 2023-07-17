@@ -10,7 +10,7 @@ genre = [random.randint(0,8) for x in range(5000)]
 story = [random.randint(0,6) for x in range(5000)]
 lead_character = [random.randint(0,5) for x in range(5000)]
 second_lead = [random.randint(0,4) for x in range(5000)]
-locations = [random.randint(0,3) for x in range(5000)]
+#locations = [random.randint(0,3) for x in range(5000)]
 tone = [random.randint(0,2) for x in range(5000)]
 ratings = [random.randint(0,5) for x in range(5000)]
 executive_10years = [random.randint(0,3) for x in range(5000)]
@@ -112,5 +112,26 @@ for step in range(nSteps):
     # Ytest = addOnes(np.tanh(Xtest1 @ V)) @ W  #!! Forward pass in one line
     errorTrace[step, 1] = mse_test.sqrt()
 
+## input from json file
+import json
+  
+# Opening JSON file
+f = open('data2.json')
+  
+# returns JSON object as 
+# a dictionary
+data = json.load(f)
+  
+# Iterating through the json list
+list_input = []
+for i in data:
+    for key,value in i.items():
+        list_input.append(int(value))
 
-print ('The percentage of Success is', nnet(Xtestt[0]).detach().numpy()[0], ' %')
+# Closing file
+f.close()
+
+## convert input to tensor
+
+input_tensor = torch.from_numpy(np.array(list_input)).float()
+print ('The percentage of Success is', nnet(input_tensor).detach().numpy()[0], ' %')
