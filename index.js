@@ -7,7 +7,7 @@ function start( ){
     app.get('/', (req, res) => {
  
         //response write
-        res.write("Streamer Engine is churning data... please wait for the results");
+        //res.write("Streamer Engine is churning data... please wait for the results");
         
         var dataToSend;
         // spawn new child process to call the python script
